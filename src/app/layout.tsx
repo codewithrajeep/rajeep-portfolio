@@ -26,6 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
@@ -33,7 +34,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem={false}
+          enableSystem
+          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
