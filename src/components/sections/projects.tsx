@@ -78,6 +78,20 @@ export function Projects() {
               </motion.div>
             ))}
           </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+            className="flex justify-center mt-10"
+          >
+            <a
+              href="/projects"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border text-sm text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-300"
+            >
+              View all projects →
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </section>
