@@ -56,7 +56,7 @@ export const data = {
       description:
         "Task and project management app with JWT auth, refresh tokens, and a clean modular architecture.",
       tech: ["Node.js", "TypeScript", "PostgreSQL", "Next.js", "Prisma"],
-      github: "https://github.com/codewithrajeep/noted-backend",
+      github: "https://github.com/codewithrajeep/noted_backend",
       live: "https://noted-backend-gn0j.onrender.com",
     },
     {
