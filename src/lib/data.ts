@@ -41,7 +41,7 @@ export const data = {
         "Webhook delivery service similar to Svix/Hookdeck. Handles reliable webhook dispatch with queuing, retries, and API key auth.",
       tech: ["Node.js", "TypeScript", "BullMQ", "Redis", "PostgreSQL"],
       github: "https://github.com/codewithrajeep/hookman-backend",
-      live: "",
+      live: "https://hookman-backend.onrender.com",
     },
     {
       name: "Pulseboard",
@@ -54,10 +54,18 @@ export const data = {
     {
       name: "Noted",
       description:
-        "Full-stack task and project management app with JWT auth, refresh tokens, and a clean modular architecture.",
+        "Task and project management app with JWT auth, refresh tokens, and a clean modular architecture.",
       tech: ["Node.js", "TypeScript", "PostgreSQL", "Next.js", "Prisma"],
       github: "https://github.com/codewithrajeep/noted-backend",
-      live: "",
+      live: "https://noted-backend-gn0j.onrender.com",
+    },
+    {
+      name: "arcstack",
+      description:
+        "Published npm CLI tool for backend project architecture scaffolding. Helps developers scaffold production-ready backend structures instantly.",
+      tech: ["Node.js", "TypeScript", "CLI", "npm"],
+      github: "https://github.com/codewithrajeep/arcstack",
+      live: "https://www.npmjs.com/package/arcstack",
     },
   ],
 
