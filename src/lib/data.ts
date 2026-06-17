@@ -8,6 +8,18 @@ export const data = {
 
   experience: [
     {
+      company: "W3 Developers Pvt. Ltd.",
+      role: "Backend Software Engineer",
+      period: "Jan 2026 – Apr 2026",
+      points: [
+        "Built W3 Worksphere HRM platform with 18 modules including Auth, Payroll, Attendance, Leave and CRM",
+        "Migrated production database from Railway MySQL to Neon PostgreSQL",
+        "Deployed full system on Render with GitHub Actions CI/CD pipeline",
+        "Delivered complete API documentation and handover on contract completion",
+      ],
+      tech: ["Node.js", "TypeScript", "PostgreSQL", "Prisma", "Express.js"],
+    },
+    {
       company: "Mahuri Ventures",
       role: "Backend Developer Intern",
       period: "Jan 2025 – Jan 2026",
@@ -19,18 +31,6 @@ export const data = {
         "Collaborated using Git and GitHub for version control",
       ],
       tech: ["Node.js", "TypeScript", "Express.js", "PostgreSQL", "MongoDB"],
-    },
-    {
-      company: "W3 Developers Pvt. Ltd.",
-      role: "Backend Software Engineer",
-      period: "Jan 2026 – Apr 2026",
-      points: [
-        "Built W3 Worksphere HRM platform with 18 modules including Auth, Payroll, Attendance, Leave and CRM",
-        "Migrated production database from Railway MySQL to Neon PostgreSQL",
-        "Deployed full system on Render with GitHub Actions CI/CD pipeline",
-        "Delivered complete API documentation and handover on contract completion",
-      ],
-      tech: ["Node.js", "TypeScript", "PostgreSQL", "Prisma", "Express.js"],
     },
   ],
 
