@@ -22,7 +22,9 @@ My personal developer portfolio built with modern web technologies.
 
 ## Run Locally
 
+```bash
 git clone https://github.com/codewithrajeep/rajeep-portfolio
 cd rajeep-portfolio
 pnpm install
 pnpm dev
+```
