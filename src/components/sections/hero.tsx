@@ -53,7 +53,7 @@ export function Hero() {
                 <Mail size={20} />
               </a>
               <a
-                href="/resume.pdf"
+                href="/Rajeep_Gadal_Resume.pdf"
                 target="_blank"
                 className="ml-2 px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity"
               >
