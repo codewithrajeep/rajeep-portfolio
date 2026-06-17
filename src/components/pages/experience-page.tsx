@@ -37,7 +37,7 @@ export function ExperiencePage() {
               <h1 className="text-3xl font-bold">Full Experience</h1>
             </div>
             <a
-              href="/resume.pdf"
+              href="/Rajeep_Gadal_Resume.pdf"
               target="_blank"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-sm text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all"
             >
