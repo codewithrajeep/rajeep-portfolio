@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageTransition } from "@/components/page-transition";
+import { LoadingScreen } from "@/components/loading-screen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LoadingScreen />
           <PageTransition>
             <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
               {children}
