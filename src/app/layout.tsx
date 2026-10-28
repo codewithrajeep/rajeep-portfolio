@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Rajeep Gadal | Backend Developer",
   description:
-    "Backend-focused Software Engineer specializing in Node.js, TypeScript, PostgreSQL and distributed systems.",
+    "Backend-focused Software Engineer building reliable systems and APIs.",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body>
         <ThemeProvider
@@ -38,7 +38,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <PageTransition>{children}</PageTransition>
+          <PageTransition>
+            <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
+              {children}
+            </main>
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>
