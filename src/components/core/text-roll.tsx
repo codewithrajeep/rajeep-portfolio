@@ -1,5 +1,5 @@
-'use client';
-import { motion, TargetAndTransition } from 'framer-motion';
+"use client";
+import { motion, TargetAndTransition } from "framer-motion";
 
 export type TextRollProps = {
   children: string;
@@ -24,15 +24,17 @@ export function TextRoll({
   transition,
 }: TextRollProps) {
   const defaultVariants = {
-    enter: { initial: { y: 0 }, animate: { y: '100%' } },
-    exit: { initial: { y: '-100%' }, animate: { y: 0 } },
+    enter: { initial: { y: 0 }, animate: { y: "100%" } },
+    exit: { initial: { y: "-100%" }, animate: { y: 0 } },
   };
-
   const activeVariants = variants || defaultVariants;
+  // Use Intl.Segmenter to properly split complex languages like Nepali, Hindi, Japanese, etc.
+  const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
+  const letters = Array.from(segmenter.segment(children), (s) => s.segment);
 
   return (
     <span className={`relative inline-block overflow-hidden ${className}`}>
-      {children.split('').map((letter, i) => (
+      {letters.map((letter, i) => (
         <motion.span
           key={i}
           className="inline-block"
@@ -40,7 +42,7 @@ export function TextRoll({
           animate={activeVariants.exit.animate as TargetAndTransition}
           transition={{ duration, delay: getEnterDelay(i), ...transition }}
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
     </span>
