@@ -9,9 +9,7 @@ import {
   Briefcase,
   FolderGit2,
   Link as LinkIcon,
-  Mail,
-  Sun,
-  Moon,
+  Mail
 } from "lucide-react";
 import { SiGithub, SiInstagram } from "react-icons/si";
 import {
@@ -20,7 +18,6 @@ import {
   DockItem,
   DockLabel,
 } from "@/components/motion-primitives/dock";
-import { useTheme } from "next-themes";
 import { FaLinkedin } from "react-icons/fa";
 import { ThemeToggleCircle } from "./theme-toggle-circle";
 
