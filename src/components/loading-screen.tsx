@@ -20,25 +20,21 @@ const greetings = [
 export function LoadingScreen() {
   const [index, setIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
-    setIsMounted(true);
     let timeoutId: NodeJS.Timeout;
     let currentIndex = 0;
     const cycleGreetings = () => {
-      // 1. HOLD LAST WORD
       if (currentIndex === greetings.length - 1) {
         timeoutId = setTimeout(() => {
           setIsLoading(false);
-        }, 1000); // <--- TWEAK: How long the last word stays on screen (1000 = 1 second)
+        }, 1000);
         return;
       }
-      // 2. DELAY PER WORD
       let delayForCurrentWord;
       if (currentIndex === 0) {
-        delayForCurrentWord = 800; // <--- TWEAK: How long "Hello" stays (800 = 0.8 seconds)
+        delayForCurrentWord = 800;
       } else {
-        delayForCurrentWord = 400; // <--- TWEAK: How long the middle words stay (400 = 0.4 seconds)
+        delayForCurrentWord = 400;
       }
       timeoutId = setTimeout(() => {
         currentIndex++;
@@ -49,7 +45,6 @@ export function LoadingScreen() {
     cycleGreetings();
     return () => clearTimeout(timeoutId);
   }, []);
-  if (!isMounted) return null;
 
   return (
     <AnimatePresence>
@@ -58,6 +53,7 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
+          // Added bg-[#09090b] directly here so it's rendered dark on the server
           className="fixed inset-0 z-100 flex items-center justify-center bg-[#09090b] text-white"
         >
           <AnimatePresence mode="wait">
@@ -66,7 +62,7 @@ export function LoadingScreen() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }} // <--- TWEAK: The fade transition between words
+              transition={{ duration: 0.2 }}
             >
               <TextRoll
                 className="text-3xl md:text-5xl font-medium tracking-tight"
@@ -74,8 +70,8 @@ export function LoadingScreen() {
                   enter: { initial: { y: 0 }, animate: { y: 40 } },
                   exit: { initial: { y: -40 }, animate: { y: 0 } },
                 }}
-                duration={0.35} // <--- TWEAK: How fast the letters physically roll (0.35 = 350ms)
-                getEnterDelay={(i) => i * 0.03} // <--- TWEAK: Stagger between each letter
+                duration={0.35}
+                getEnterDelay={(i) => i * 0.03}
                 getExitDelay={(i) => i * 0.03 + 0.03}
                 transition={{ ease: [0.175, 0.885, 0.32, 1.1] }}
               >
