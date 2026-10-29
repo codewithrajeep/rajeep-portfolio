@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageTransition } from "@/components/page-transition";
 import { LoadingScreen } from "@/components/loading-screen";
+import { MacDock } from "@/components/mac-dock";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#09090b]`}
     >
-      <body>
+      <body className="bg-background text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -45,6 +46,7 @@ export default function RootLayout({
               {children}
             </main>
           </PageTransition>
+          <MacDock />
         </ThemeProvider>
       </body>
     </html>
