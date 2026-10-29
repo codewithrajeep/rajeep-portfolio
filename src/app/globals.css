@@ -135,4 +135,19 @@ body {
     background: var(--primary);
     color: var(--primary-foreground);
   }
+  /* For Theme Transition Option 1 (Circular Reveal) */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  /* For Theme Transition Option 2 (Cross-Fade Blur) */
+  .theme-transition-blur {
+    filter: blur(8px);
+    opacity: 0.8;
+    transition:
+      filter 0.4s ease,
+      opacity 0.4s ease;
+  }
 }
