@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { PageTransition } from "@/components/page-transition";
 import { LoadingScreen } from "@/components/loading-screen";
 import { MacDock } from "@/components/mac-dock";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,13 +41,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LoadingScreen />
-          <PageTransition>
-            <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
-              {children}
-            </main>
-          </PageTransition>
-          <MacDock />
+          {/* 2. Wrap everything in TooltipProvider */}
+          <TooltipProvider delayDuration={200}>
+            <LoadingScreen />
+            <PageTransition>
+              <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
+                {children}
+              </main>
+            </PageTransition>
+            <MacDock />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
