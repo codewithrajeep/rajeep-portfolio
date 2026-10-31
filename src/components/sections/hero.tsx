@@ -1,93 +1,112 @@
-"use client";
-
-import { Mail, ArrowDown } from "lucide-react";
-import { motion } from "framer-motion";
-import { data } from "@/lib/data";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MapPin } from "lucide-react";
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogImage,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from "@/components/motion-primitives/morphing-dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-16">
-      <div className="max-w-5xl mx-auto px-6 w-full">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
-          {/* Left content */}
-          <motion.div
-            className="flex-1"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+    <section id="hero" className="flex flex-col gap-4 pt-4 md:pt-10">
+      {/* Header Block */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        {/* Left Side: Avatar & Name */}
+        {/* Tweaked gap to be smaller on mobile (gap-4) and normal on desktop (md:gap-6) */}
+        <div className="flex items-center gap-4 md:gap-6">
+          <MorphingDialog
+            transition={{
+              type: "spring",
+              bounce: 0.05,
+              duration: 0.25,
+            }}
           >
-            <p className="text-sm text-muted-foreground mb-3">Hey, I'm</p>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-              {data.name}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="relative inline-block">
+                  <MorphingDialogTrigger className="group relative flex h-20 w-20 md:h-28 md:w-28 shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-border bg-muted">
+                    {/* Reduced mobile image size to h-20 w-20 to give text more room */}
+                    <MorphingDialogImage
+                      src="/rajeep_gadal.jpeg"
+                      alt="Rajeep Gadal"
+                      className="h-full w-full object-cover object-top scale-125 grayscale transition-all duration-500 group-hover:grayscale-0"
+                    />
+                  </MorphingDialogTrigger>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="z-50">
+                <p>View Profile</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <MorphingDialogContainer>
+              {/* Changed sm:w-100 to sm:w-[400px] for standard Tailwind safety */}
+              <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full max-w-[90vw] sm:w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl">
+                <MorphingDialogImage
+                  src="/rajeep_gadal.jpeg"
+                  alt="Rajeep Gadal"
+                  className="h-full w-full object-contain"
+                />
+                <MorphingDialogClose className="absolute top-4 right-4 rounded-full bg-background/50 p-2 text-foreground backdrop-blur-md transition-colors hover:bg-background/80" />
+              </MorphingDialogContent>
+            </MorphingDialogContainer>
+          </MorphingDialog>
+
+          {/* Text Container */}
+          {/* Added flex-1 and min-w-0 so the text knows to wrap nicely */}
+          <div className="flex flex-col justify-center flex-1 min-w-0">
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight text-foreground truncate">
+              Rajeep Gadal
             </h1>
-            <h2 className="text-xl md:text-2xl text-muted-foreground font-medium mb-6">
-              {data.title}
-            </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-lg mb-8">
-              {data.bio}
+            <p className="text-sm md:text-base text-muted-foreground">
+              Backend-focused Software Engineer
             </p>
-
-            {/* Social links */}
-            <div className="flex items-center gap-4">
-              <a
-                href={data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-              >
-                <FaGithub size={20} />
-              </a>
-              <a
-                href={data.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-              >
-                <FaLinkedin size={20} />
-              </a>
-              <a
-                href={`mailto:${data.email}`}
-                className="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-              >
-                <Mail size={20} />
-              </a>
-              <a
-                href="/Rajeep_Gadal_Resume.pdf"
-                target="_blank"
-                className="ml-2 px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity"
-              >
-                Resume
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Right — profile pic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl bg-muted flex items-center justify-center text-4xl font-bold text-muted-foreground border border-border">
-              RG
-            </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="flex justify-center mt-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <a
-            href="#about"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowDown size={20} className="animate-bounce" />
-          </a>
-        </motion.div>
+        {/* Right Side: Status & Location */}
+        {/* Added a mt-2 on mobile so it doesn't hug the text above it */}
+        <div className="flex flex-col md:items-end justify-center gap-1.5 md:mt-1.5 mt-2">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-xs md:text-sm font-medium text-foreground">
+              Open to remote
+            </span>
+          </div>
+
+          <div className="flex items-center gap-1 text-muted-foreground font-mono text-xs">
+            <MapPin className="h-3 w-3" />
+            <span>Kathmandu, Nepal</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bio Narrative */}
+      <div className="flex flex-col gap-3 text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mt-4">
+        <p>
+          I'm a backend-focused Software Engineer from Nepal 🇳🇵, currently
+          studying Bachelors in Information Technology at Patan Multiple Campus
+          (TU). I got hooked the moment I figured out how to make a database
+          talk to a frontend, and I've been building backend systems ever since.
+        </p>
+        <p>
+          These days, I spend my time optimizing queries, learning system
+          design, and diving into DevOps (Linux, Docker, AWS). When I'm not at
+          my keyboard, I'm usually overanalyzing F1 strategy as a (very patient)
+          Ferrari fan, or reading about neuroplasticity. I'm a big believer that{" "}
+          <em>"neurons that fire together, wire together"</em> whether I'm
+          building a new architecture or breaking a bad habit.
+        </p>
       </div>
     </section>
   );
