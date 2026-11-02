@@ -48,7 +48,7 @@ export function Hero() {
 
             <MorphingDialogContainer>
               {/* Changed sm:w-100 to sm:w-[400px] for standard Tailwind safety */}
-              <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full max-w-[90vw] sm:w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl">
+              <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full max-w-[90vw] sm:w-100 flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl">
                 <MorphingDialogImage
                   src="/rajeep_gadal.jpeg"
                   alt="Rajeep Gadal"
