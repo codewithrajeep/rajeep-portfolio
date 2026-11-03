@@ -130,6 +130,7 @@ body {
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
   ::selection {
     background: var(--primary);
