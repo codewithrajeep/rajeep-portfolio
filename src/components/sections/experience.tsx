@@ -61,7 +61,6 @@ export function Experience() {
           >
             {/* Trigger Card */}
             <MorphingDialogTrigger className="group w-full flex flex-row items-center justify-between rounded-xl border border-border bg-card p-4 sm:p-5 text-left transition-colors hover:bg-muted/40">
-              
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-muted font-mono text-sm font-bold text-muted-foreground">
                   {exp.shortName}
@@ -83,14 +82,12 @@ export function Experience() {
                   {exp.date}
                 </p>
               </div>
-
             </MorphingDialogTrigger>
 
             {/* Expanded Dialog Content */}
             <MorphingDialogContainer>
               {/* INCREASED PADDING to p-8 sm:p-10 for massive breathing room */}
-              <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full max-w-[90vw] sm:w-[600px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl p-8 sm:p-10">
-                
+              <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full max-w-[90vw] sm:w-150 flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl p-8 sm:p-10">
                 {/* Clean, absolute positioned close button */}
                 <MorphingDialogClose className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors" />
 
