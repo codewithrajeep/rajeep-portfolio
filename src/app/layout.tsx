@@ -6,6 +6,7 @@ import { PageTransition } from "@/components/page-transition";
 import { LoadingScreen } from "@/components/loading-screen";
 import { MacDock } from "@/components/mac-dock";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SeasonalEffects } from "@/components/seasonal-effects";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SeasonalEffects />
           {/* 2. Wrap everything in TooltipProvider */}
           <TooltipProvider delayDuration={200}>
             <LoadingScreen />
