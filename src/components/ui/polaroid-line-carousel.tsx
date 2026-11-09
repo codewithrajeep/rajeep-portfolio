@@ -314,12 +314,11 @@ const PL_CSS = [
   ".pl-card{position:absolute;left:0;top:0;width:var(--pl-cw);transform-origin:50% 0;will-change:transform;cursor:inherit}",
   ".pl-print{margin-top:10px;background:#fbfaf7;padding:10px 10px 10px;box-shadow:0 1px 2px rgba(0,0,0,.12),0 18px 30px -16px rgba(0,0,0,.4);transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s ease}",
   ".pl-card[data-on='0'] .pl-print{transform:scale(.9);filter:saturate(.7) brightness(.96)}",
-  // Changed to 3/2 for landscape photos
   ".pl-shot{position:relative;aspect-ratio:3/2;overflow:hidden;background:#d9d5cc}",
   ".pl-shot img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;pointer-events:none}",
   ".pl-peg{position:absolute;left:50%;top:0;width:10px;height:26px;margin-left:-5px;border-radius:2px;background:linear-gradient(90deg,#c9a67a,#e3c9a1 45%,#b8915f);box-shadow:0 2px 3px rgba(0,0,0,.25)}",
   ".pl-peg::after{content:'';position:absolute;left:4px;top:8px;width:2px;height:7px;background:rgba(80,60,30,.45);border-radius:1px}",
-  ".pl-bar{position:absolute;left:0;right:0;bottom:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:default}",
+  ".pl-bar{position:absolute;left:0;right:0;bottom:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:default}",
   ".pl-cap{flex:none;min-width:0;overflow:hidden;text-align:center}",
   ".pl-cap>*{display:block;animation:pl-in .55s cubic-bezier(.2,.8,.2,1) both}",
   ".pl-sub{font:400 13px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--pl-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:80vw;letter-spacing:0.05em;text-transform:uppercase}",
