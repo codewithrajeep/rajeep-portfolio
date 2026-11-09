@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PolaroidLineCarousel from "@/components/ui/polaroid-line-carousel";
 import { XIcon, ChevronLeft, ChevronRight } from "lucide-react";
@@ -11,67 +11,90 @@ import { XIcon, ChevronLeft, ChevronRight } from "lucide-react";
 const photos = [
   {
     image: "/photography/1.jpeg",
-    caption: "Valais, Switzerland.",
+    caption: "Bish Hajari Taal.",
   },
   {
     image: "/photography/2.jpg",
-    caption: "Lago di Braies.",
+    caption: "Sunset at Gold Valley.",
   },
   {
     image: "/photography/3.jpg",
-    caption: "Gold Valley.",
+    caption: "Morning sunrise with a few birds.",
   },
   {
     image: "/photography/4.jpg",
-    caption: "Snow Line.",
+    caption: "A beautiful sunset viewed from my friend's house.",
   },
   {
     image: "/photography/5.jpg",
-    caption: "Blue Ridges.",
+    caption: "Another sunset, painted in red, orange, and yellow.",
   },
   {
     image: "/photography/6.jpg",
-    caption: "Falls Bridge.",
+    caption: "A clear view of the morning sunrise.",
   },
   {
     image: "/photography/7.jpg",
-    caption: "Falls Bridge.",
+    caption:
+      "Photo taken by my beautiful friend. The following photos start from here, all captured by her.",
   },
   {
     image: "/photography/8.jpg",
-    caption: "Falls Bridge.",
+    caption: "Another beautiful cloud formation.",
   },
   {
     image: "/photography/9.jpg",
-    caption: "Falls Bridge.",
+    caption: "Clouds drifting across the blue sky.",
   },
   {
     image: "/photography/10.jpg",
-    caption: "Falls Bridge.",
+    caption: "This one looks like a painting.",
   },
   {
     image: "/photography/11.jpg",
-    caption: "Falls Bridge.",
+    caption: "A clear view with scattered clouds.",
   },
   {
     image: "/photography/12.jpg",
-    caption: "Falls Bridge.",
+    caption: "Just look at this sunset.",
   },
   {
     image: "/photography/13.jpg",
-    caption: "Falls Bridge.",
+    caption: "Another beautifully captured sunset.",
   },
   {
     image: "/photography/14.jpg",
-    caption: "Falls Bridge.",
+    caption: "Well, this is the end, with one last beautiful sunset.",
   },
 ];
 
 export function Photography() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // --- KEYBOARD NAVIGATION LOGIC ---
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only trigger if the lightbox is open
+      if (lightboxIndex === null) return;
+
+      if (e.key === "ArrowLeft") {
+        setLightboxIndex((prev) => (prev! - 1 + photos.length) % photos.length);
+      } else if (e.key === "ArrowRight") {
+        setLightboxIndex((prev) => (prev! + 1) % photos.length);
+      } else if (e.key === "Escape") {
+        setLightboxIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex]);
+
   return (
-    <section id="photography" className="flex flex-col gap-6 py-12 relative">
+    <section
+      id="photography"
+      className="flex flex-col gap-6 pt-4 pb-0 relative"
+    >
       <div className="flex flex-col gap-2">
         <p className="text-muted-foreground font-mono text-sm">
           Through my lens
@@ -87,8 +110,8 @@ export function Photography() {
 
       <div className="relative mt-0">
         <PolaroidLineCarousel
-          height="450px" // Reduced from 550px to bring the text closer
-          cardWidth={360} // Increased from 320 to make images a bit bigger
+          height="380px"
+          cardWidth={360}
           sag={40}
           swing={1.2}
           autoplay={4000}
@@ -105,7 +128,7 @@ export function Photography() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-sm"
             onClick={() => setLightboxIndex(null)}
           >
             {/* Close Button */}
