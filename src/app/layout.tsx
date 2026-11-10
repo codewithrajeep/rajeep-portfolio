@@ -7,6 +7,8 @@ import { LoadingScreen } from "@/components/loading-screen";
 import { MacDock } from "@/components/mac-dock";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SeasonalEffects } from "@/components/seasonal-effects";
+import { SeasonProvider } from "@/components/season-context";
+import { SeasonCustomizer } from "@/components/season-customizer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,17 +44,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SeasonalEffects />
-          {/* 2. Wrap everything in TooltipProvider */}
-          <TooltipProvider delayDuration={200}>
-            <LoadingScreen />
-            <PageTransition>
-              <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
-                {children}
-              </main>
-            </PageTransition>
-            <MacDock />
-          </TooltipProvider>
+          <SeasonProvider>
+            <SeasonalEffects />
+            <SeasonCustomizer />
+            {/* 2. Wrap everything in TooltipProvider */}
+            <TooltipProvider delayDuration={200}>
+              <LoadingScreen />
+              <PageTransition>
+                <main className="mx-auto max-w-2xl px-6 md:px-8 pt-24 pb-32 flex flex-col gap-24">
+                  {children}
+                </main>
+              </PageTransition>
+              <MacDock />
+            </TooltipProvider>
+          </SeasonProvider>
         </ThemeProvider>
       </body>
     </html>
